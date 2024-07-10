@@ -76,3 +76,20 @@ nums.forEach((num) => {
     console.log(num);
 });
 ```
+
+Objects
+```javascript
+const person = {
+  name: 'Sean',
+  age: 69,
+  title: 'Tutor'
+};
+
+console.log(person.sean); // Output: Sean
+console.log(person.age);  // Output: 69
+
+person.email = 'sean@gmail.com'; // Adding a new property
+person.age = 420; // Modifying an existing property
+
+delete person.title; // Removes a property and value
+```
