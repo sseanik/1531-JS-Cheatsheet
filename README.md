@@ -9,12 +9,27 @@ console.log("Name: " + name + ", Age: " + age); // String concatenation
 // Will result in "Name: Sean, Age: 69" (with a new line)
 ```
 
-Const
+Data Types
+```javascript
+
+```
+
+Const Variable
 ```javascript
 const pi = 3.14159;
 // NOT ALLOWED
 pi = 3.14; // Uncaught TypeError: Assignment to constant variable.
 ```
+
+Const Array
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+numbers.push(6); // Allowed, numbers will become [1, 2, 3, 4, 5, 6]
+// NOT ALLOWED
+numbers = [7, 8, 9]; // Uncaught TypeError: Assignment to constant variable.
+```
+
+Const Object
 ```javascript
 const person = {
   name: 'Sean',
@@ -23,12 +38,6 @@ const person = {
 person.age = 420; // Allowed
 // NOT ALLOWED
 person = { name: 'Hayden', age: 69420 }; // Uncaught TypeError: Assignment to constant variable.
-```
-```javascript
-const numbers = [1, 2, 3, 4, 5];
-numbers.push(6); // Allowed, numbers will become [1, 2, 3, 4, 5, 6]
-// NOT ALLOWED
-numbers = [7, 8, 9]; // Uncaught TypeError: Assignment to constant variable.
 ```
 
 Let
@@ -45,7 +54,7 @@ if (x > 5) {
 console.log(y); // Uncaught ReferenceError: y is not defined
 ```
 
-Array Looping
+Array Looping C-Style
 ```javascript
 const nums = [10, 9, 8, 7, 6];
 
@@ -60,7 +69,10 @@ while (i < nums.length) {
     console.log(nums[i]);
     i++;
 }
+```
 
+Array Looping Recommended
+```
 // For..of Loop - Gives you the array value on each iteration (i.e. 10, 9, 8, 7, 6)
 for (const num of nums) {
     console.log(num);
@@ -92,4 +104,17 @@ person.email = 'sean@gmail.com'; // Adding a new property
 person.age = 420; // Modifying an existing property
 
 delete person.title; // Removes a property and value
+```
+Nested Objects
+```javascript
+const person = {
+  name: 'Sean',
+  age: 69,
+  title: 'Tutor'
+};
+```
+
+Object Looping
+```javascript
+
 ```
