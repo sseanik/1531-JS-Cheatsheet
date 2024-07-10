@@ -6,6 +6,7 @@ const name = "Sean";
 const age = 69;
 console.log(`Name: ${name}, Age: ${age}`); // Template Literal
 console.log("Name: " + name + ", Age: " + age); // String concatenation
+// Will result in "Name: Sean, Age: 69" (with a new line)
 ```
 
 Const
@@ -16,8 +17,8 @@ pi = 3.14; // Uncaught TypeError: Assignment to constant variable.
 ```
 ```javascript
 const person = {
-    name: 'Sean',
-    age: 69
+  name: 'Sean',
+  age: 69
 };
 person.age = 420; // Allowed
 // NOT ALLOWED
@@ -25,7 +26,7 @@ person = { name: 'Hayden', age: 69420 }; // Uncaught TypeError: Assignment to co
 ```
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
-numbers.push(6); // Allowed
+numbers.push(6); // Allowed, numbers will become [1, 2, 3, 4, 5, 6]
 // NOT ALLOWED
 numbers = [7, 8, 9]; // Uncaught TypeError: Assignment to constant variable.
 ```
@@ -70,6 +71,7 @@ for (const i in array) {
     console.log(nums[i]);
 }
 
+// Built-in prototype method for array
 nums.forEach((num) => {
     console.log(num);
 });
