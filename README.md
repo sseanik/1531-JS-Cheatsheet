@@ -9,19 +9,20 @@
 const character = 'a';
 const name =  'Sean';
 const phrase  = "Hello World";
+const word = 'friend';
 const sentence = `Hey ${word}, welcome to my ${phrase} program`;
 
 // Numbers
 const integer = 69;
 const pi = 3.14159265;
 const negative = -420;
-const inf = infinity;
+const inf = Infinity;
 
 // Arrays
 const emptyArray = [];
 const letters = ['a', 'b', 'c', 'd'];
-const objects = [{letter: 'a'}, {letter: 'b'}, {letter: 'c'}]
-const mixed = [1, 'a', [1,2,3]]
+const objects = [{letter: 'a'}, {letter: 'b'}, {letter: 'c'}];
+const mixed = [1, 'a', [1, 2, 3]];
 const nums = [1, 2, 3, 4];
 
 nums[0] = 1.5; // nums becomes [1.5, 2, 3, 4]
@@ -35,29 +36,29 @@ const person = {
 };
 
 // Nested Objects
-const person = {
+const personWithJob = {
   name: "Sean",
   age: 69,
   work: {
-     university: "UNSW",
-     course: "COMP",
-     courseNum: 1531,
-     role: "Tutor"
-   }
+    university: "UNSW",
+    course: "COMP",
+    courseNum: 1531,
+    role: "Tutor"
+  }
 };
 
 // Reading specific values from an object (name and age are keys)
 console.log(person.name); // Output: Sean
-console.log(person['age']);  // Output: 69
+console.log(person['age']); // Output: 69
 
 // Modifying an object
 person.email = 'sean@gmail.com'; // Adding a new property 
-// person becomes { name: 'Sean', age: 69, title: 'Tutor', email: 'sean@gmail.com' }
+// person becomes { name: 'Sean', age: 69, isTutor: true, email: 'sean@gmail.com' }
 
 person.age = 420; // Modifying an existing property
-// person becomes { name: 'Sean', age: 420, title: 'Tutor', email: 'sean@gmail.com' }
+// person becomes { name: 'Sean', age: 420, isTutor: true, email: 'sean@gmail.com' }
 
-delete person.title; // Removes a key and value, 
+delete person.isTutor; // Removes a key and value
 // person becomes { name: 'Sean', age: 420, email: 'sean@gmail.com' }
 ```
 
@@ -209,10 +210,10 @@ const numbers = [1, 2, 3, 4, 5];
 const evenNumbers = numbers.filter(num => num % 2 === 0); // Output: [2, 4]
 
 // Equivalent Longer way:
-const evenNumbers = [];
+const evenNumbersAlt = [];
 for (const num of numbers) {
   if (num % 2 === 0) {
-	evenNumbers.push(num);
+	evenNumbersAlt.push(num);
   }
 }
 
@@ -220,18 +221,18 @@ for (const num of numbers) {
 const doubled = numbers.map(num => num * 2); // Output: [2, 4, 6, 8, 10]
 
 // Equivalent Longer way:
-const doubled = [];
+const doubledAlt = [];
 for (const num of numbers) {
-  doubled.push(num * 2);
+  doubledAlt.push(num * 2);
 }
 
 // .reduce - Executes a function on each element of the array, resulting in a singular output
 const sum = numbers.reduce((prev, curr) => prev + curr, 0); // Output: 15
 
 // Equivalent Longer way:
-let sum = 0;
+let sumAlt = 0;
 for (const num of numbers) {
-  sum += num;
+  sumAlt += num;
 }
 ```
 **Adding n elements to start or end of an Array**
@@ -361,47 +362,164 @@ for (const [key, value] of Object.entries(obj)) {
 
 ## Equality Checks
 ```javascript
+const a = 1;
+const b = '1';
 
-```
+// == vs ===
+console.log(a == b);  // true (== performs type coercion)
+console.log(a === b); // false (=== checks for strict equality)
 
-## If, Else if, Else
-```javascript
+// != vs !==
+console.log(a != b);  // false (!= performs type coercion)
+console.log(a !== b); // true (!== checks for strict inequality)
+
+// Use of ! operator
+console.log(![]);       // false (an empty array is truthy)
+console.log(!['a']);    // false (a non-empty array is truthy)
+console.log(!!'string'); // true (double negation to check truthiness)
 
 ```
 
 ## Ternary Statements
 ```javascript
+const age = 18;
+const canVote = age >= 18 ? 'Yes' : 'No';
+console.log(canVote); // Output: Yes
+
+const value = null;
+const defaultValue = value ? value : 'default';
+console.log(defaultValue); // Output: default
 
 ```
 
 ## Functions
 ```javascript
+// Regular Function
+function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 3)); // Output: 5
+
+// Arrow Function
+const addArrow = (a, b) => a + b;
+console.log(addArrow(2, 3)); // Output: 5
+
+// Arrow Function with block body
+const addArrowBlock = (a, b) => {
+  return a + b;
+};
+console.log(addArrowBlock(2, 3)); // Output: 5
 
 ```
 
 ## Importing & Exporting
 ```javascript
+// Exporting
+// myModule.js
+export const pi = 3.14159;
+export function add(a, b) {
+  return a + b;
+}
+
+// Importing
+// main.js
+import { pi, add } from './myModule.js';
+console.log(pi);       // Output: 3.14159
+console.log(add(2, 3)); // Output: 5
+
+// Default Export
+// myModule.js
+export default function subtract(a, b) {
+  return a - b;
+}
+
+// main.js
+import subtract from './myModule.js';
+console.log(subtract(5, 3)); // Output: 2
 
 ```
 
 ## Packages
 ```javascript
+// Using npm to install a package
+// Open terminal and run:
+npm install lodash
+
+// Using the installed package in your code
+import _ from 'lodash';
+
+const array = [1, 2, 3, 4];
+const reversed = _.reverse(array.slice());
+console.log(reversed); // Output: [4, 3, 2, 1]
 
 ```
 
 ## Spread Operator
 ```javascript
+// Arrays
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+
+const combinedArray = [...array1, ...array2];
+console.log(combinedArray); // Output: [1, 2, 3, 4, 5, 6]
+
+// Objects
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+
+const combinedObject = { ...obj1, ...obj2 };
+console.log(combinedObject); // Output: { a: 1, b: 2, c: 3, d: 4 }
 
 ```
 
 ## Sorting
 ```javascript
+// Sorting an array of numbers
+const numbers = [4, 2, 5, 1, 3];
+
+// Ascending order
+numbers.sort((a, b) => a - b);
+console.log(numbers); // Output: [1, 2, 3, 4, 5]
+
+// Descending order
+numbers.sort((a, b) => b - a);
+console.log(numbers); // Output: [5, 4, 3, 2, 1]
+
+// .toSorted (Newer method)
+const sortedNumbers = numbers.toSorted((a, b) => a - b);
+console.log(sortedNumbers); // Output: [1, 2, 3, 4, 5]
+console.log(numbers); // Original array unchanged
 
 ```
 
 ## String Manipulation
 ```javascript
+const sentence = "Hello, World!";
 
+// Length
+console.log(sentence.length); // Output: 13 - Length of the string
+
+// Changing case
+console.log(str.toUpperCase()); // Output: HELLO, WORLD!
+console.log(str.toLowerCase()); // Output: hello, world!
+```
+```javascript
+const sentence = "Hello, World!";
+
+// Substring
+console.log(str.substring(0, 5)); // Output: Hello
+console.log(str.slice(-6)); // Output: World!
+
+// Replace
+console.log(str.replace('World', 'JavaScript')); // Output: Hello, JavaScript!
+
+// Split
+const words = str.split(', ');
+console.log(words); // Output: ['Hello', 'World!']
+
+// Trim
+const paddedStr = "   Hello, World!   ";
+console.log(paddedStr.trim()); // Output: Hello, World!
 ```
 
 ## Persistance
@@ -426,14 +544,51 @@ for (const [key, value] of Object.entries(obj)) {
 # TypeScript
 ## Parameter and Return Types
 ```javascript
+function add(a: number, b: number): number {
+  return a + b;
+}
 
+function isEven(num: number): boolean {
+  return num % 2 === 0;
+}
 ```
 ## Interfaces
 ```javascript
+interface Person {
+  name: string;
+  age: number;
+}
 
+const person: Person = {
+  name: 'Sean',
+  age: 69
+};
 ```
 ## Types
 ```javascript
+type Shape = 'circle' | 'square';
+
+interface Circle {
+  kind: 'circle';
+  radius: number;
+}
+
+interface Square {
+  kind: 'square';
+  sideLength: number;
+}
+
+type ShapeObject = Circle | Square;
+
+const circle: ShapeObject = {
+  kind: 'circle',
+  radius: 5
+};
+
+const square: ShapeObject = {
+  kind: 'square',
+  sideLength: 10
+};
 
 ```
 
@@ -469,12 +624,29 @@ for (const [key, value] of Object.entries(obj)) {
 # Good Practice & Style
 ## Object Shorthand
 ```javascript
+const name = 'Sean';
+const age = 69;
+const tutorRole = 'tutor'
+
+const person = { name, age, role: tutorRole }; // Is the same as { name: name, age: age, role: tutorRole }
 
 ```
 
 ## Constant/Magic Variables
 ```javascript
+const MAX_USERS = 100;
 
+function createUser(name) {
+  return {
+    name,
+    id: generateId(),
+    maxUsers: MAX_USERS
+  };
+}
+
+function generateId() {
+  return Math.floor(Math.random() * MAX_USERS);
+}
 ```
 
 ## Casing
@@ -484,12 +656,34 @@ for (const [key, value] of Object.entries(obj)) {
 
 ## If Else Returns
 ```javascript
-
+// Redundant else 
+function isEven(num) { 
+  if (num % 2 === 0) { 
+    return true; 
+  } else { 
+    return false; // else is redundant 
+  } 
+} 
+// Improved 
+function isEven(num) { 
+  if (num % 2 === 0) { 
+    return true; 
+  } 
+  return false; 
+}
 ```
 
 ## JSDoc
 ```javascript
-
+/** 
+ * Adds two numbers together. 
+ * @param {number} a - The first number. 
+ * @param {number} b - The second number. 
+ * @return {number} The sum of the two numbers. 
+*/ 
+function add(a, b) { 
+  return a + b; 
+}
 ```
 
 # Git
