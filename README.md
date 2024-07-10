@@ -39,3 +39,11 @@ if (x > 5) {
 // NOT ALLOWED
 console.log(y); // Uncaught ReferenceError: y is not defined
 ```
+```javascript
+let x = 10;
+if (x > 5) {
+    let y = 20; // Let variables are only accessible in the block they are defined
+}
+// NOT ALLOWED
+console.log(y); // Uncaught ReferenceError: y is not defined
+```
