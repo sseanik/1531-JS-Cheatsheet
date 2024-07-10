@@ -43,3 +43,34 @@ if (x > 5) {
 // NOT ALLOWED
 console.log(y); // Uncaught ReferenceError: y is not defined
 ```
+
+Array Looping
+```javascript
+const nums = [10, 9, 8, 7, 6];
+
+// C-Style For Loop
+for (let i = 0; i < nums.length; i++) {
+    console.log(nums[i]);
+}
+
+// C-Style While Loop
+let i = 0;
+while (i < nums.length) {
+    console.log(nums[i]);
+    i++;
+}
+
+// For..of Loop - Gives you the array value on each iteration (i.e. 10, 9, 8, 7, 6)
+for (const num of nums) {
+    console.log(num);
+}
+
+// For..in Loop - Gives you the iterable variable on each iteration (i.e. 0, 1, 2, 3, 4)
+for (const i in array) {
+    console.log(nums[i]);
+}
+
+nums.forEach((num) => {
+    console.log(num);
+});
+```
