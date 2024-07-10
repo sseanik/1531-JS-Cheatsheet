@@ -8,7 +8,7 @@ console.log(`Name: ${name}, Age: ${age}`); // Template Literal
 console.log("Name: " + name + ", Age: " + age); // String concatenation
 ```
 
-Const & Let
+Const
 ```javascript
 const pi = 3.14159;
 // NOT ALLOWED
@@ -28,4 +28,14 @@ const numbers = [1, 2, 3, 4, 5];
 numbers.push(6); // Allowed
 // NOT ALLOWED
 numbers = [7, 8, 9]; // Uncaught TypeError: Assignment to constant variable.
+```
+
+Let
+```javascript
+let x = 10;
+if (x > 5) {
+    let y = 20;
+}
+// NOT ALLOWED
+console.log(y); // Uncaught ReferenceError: y is not defined
 ```
