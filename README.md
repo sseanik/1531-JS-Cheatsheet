@@ -48,7 +48,7 @@ const person = {
 
 // Reading specific values from an object (name and age are keys)
 console.log(person.name); // Output: Sean
-console.log(person.age);  // Output: 69
+console.log(person['age']);  // Output: 69
 
 // Modifying an object
 person.email = 'sean@gmail.com'; // Adding a new property 
@@ -313,31 +313,50 @@ numbers.reverse(); // Returns reference to same array - [5, 4, 3, 2, 1]
 
 ## Object Methods
 ```javascript
-const person = {
-  name: 'Sean',
-  age: 69,
-  title: 'Tutor'
-};
+// .entries - Returns an array of objects [key, value] pairs
+const obj = { a: 1, b: 2, c: 3 }; 
+const entries = Object.entries(obj); // entries: [['a', 1], ['b', 2], ['c', 3]]
 
-console.log(person.sean); // Output: Sean
-console.log(person.age);  // Output: 69
+// .keys - Returns an array of the object property keys (left hand side)
+const keys = Object.keys(obj); // keys: ['a', 'b', 'c']
 
-person.email = 'sean@gmail.com'; // Adding a new property 
-// person becomes { name: 'Sean', age: 69, title: 'Tutor', email: 'sean@gmail.com' }
-person.age = 420; // Modifying an existing property
-// person becomes { name: 'Sean', age: 420, title: 'Tutor', email: 'sean@gmail.com' }
-delete person.title; // Removes a property and value, 
-// person becomes { name: 'Sean', age: 420, email: 'sean@gmail.com' }
-```
+// .values - Returns an array of the object property (right hand side) values
+const values = Object.values(obj); // values: [1, 2, 3]
 
-## Object Methods
-```javascript
-
+// Check if a key is in the object
+if ('b' in obj) { // true
+  //
+} else if ('d' in obj) { // false
+  //
+}
 ```
 
 ## Object Looping
 ```javascript
+const obj = { a: 1, b: 2, c: 3 }; 
 
+// Goal Output: 
+// a: 1 
+// b: 2 
+// c: 3
+
+for (const key in obj) { 
+  if (obj.hasOwnProperty(key)) { 
+    console.log(`${key}: ${obj[key]}`); 
+  }
+}
+
+Object.keys(obj).forEach(key => { 
+  console.log(`${key}: ${obj[key]}`); 
+});
+
+Object.entries(obj).forEach(([key, value]) => { 
+  console.log(`${key}: ${value}`); 
+});
+
+for (const [key, value] of Object.entries(obj)) { 
+  console.log(`${key}: ${value}`); 
+}
 ```
 
 ## Equality Checks
