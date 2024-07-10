@@ -32,12 +32,8 @@ numbers = [7, 8, 9]; // Uncaught TypeError: Assignment to constant variable.
 
 Let
 ```javascript
-let x = 10;
-if (x > 5) {
-    let y = 20;
-}
-// NOT ALLOWED
-console.log(y); // Uncaught ReferenceError: y is not defined
+let count = 10;
+count = 20; // Allowed
 ```
 ```javascript
 let x = 10;
